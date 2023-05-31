@@ -63,17 +63,15 @@ int is_perfect_recursive(const binary_tree_t *tree,
 }
 
 /**
-* binary_tree_is_perfect - A function that checks if a tree is perfect
-* @tree: The tree in discussion
-* Return: 0 or 1
-*/
+ * binary_tree_is_perfect - Checks if a binary tree is perfect.
+ * @tree: A pointer to the root node of the tree to check.
+ *
+ * Return: If tree is NULL or not perfect, 0.
+ *         Otherwise, 1.
+ */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
 	if (tree == NULL)
-		return (FALSE);
-
-	if (binary_tree_size(tree) > 0)
-		return (1);
-	else
 		return (0);
+	return (is_perfect_recursive(tree, depth(get_leaf(tree)), 0));
 }
